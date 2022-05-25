@@ -1,0 +1,67 @@
+<!-- Login Form -->
+<div *ngIf="islogged == false" class="row justify-content-center mt-5">
+  <div class="col-12 col-md-9 col-lg-6 col-xl-4">
+    <div class="card rounded text-white">
+      <div class="card-body p-5">
+        <div class="my-4">
+          <h2 class="text-center mb-5" style="color: #aaa ;">Login</h2>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Username</label
+              >
+              <input
+                [(ngModel)]="loginUserData.email"
+                name="Username"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                [(ngModel)]="loginUserData.password"
+                name="password"
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                required
+              />
+            </div>
+            <button (click)="loginUser()" type="button" class="btn btn-primary">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Display you're logged -->
+<div *ngIf="islogged == true">
+  <div
+    class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-white pt-5"
+  >
+    <main class="px-3">
+      <h1>You're already logged in</h1>
+      <p class="lead">
+        This is an Angular app, whose function you can't access resources on the
+        API endpoint of the route posts, if you are not an authenticated user on
+        it.
+      </p>
+      <p class="lead">
+        <a
+          href="#"
+          class="btn btn-lg btn-secondary fw-bold border-white bg-white"
+          (click)="signout()"
+          >Sign out</a
+        >
+      </p>
+    </main>
+  </div>
+</div>
